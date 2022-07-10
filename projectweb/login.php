@@ -10,6 +10,7 @@ if (isset($_POST['join'])){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
+    //Check if username is empty
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter username.";
     } else{
@@ -26,14 +27,11 @@ if (isset($_POST['join'])){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, username, pasword FROM users WHERE username = ?";
         
         if($stmt = $db->prepare($sql)){
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_username);
-            
-            // Set parameters
-            $param_username = $username;
+            $stmt->bind_param("s", $username);
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
@@ -45,6 +43,7 @@ if (isset($_POST['join'])){
                     // Bind result variables
                     $stmt->bind_result($id, $username, $password);
                     if($stmt->fetch()){
+                        if($password == $_POST["password"]){
                             // Password is correct, so start a new session
                             session_start();
                             
@@ -55,10 +54,10 @@ if (isset($_POST['join'])){
                             
                             // Redirect user to welcome page
                             header("location: welcome.php");
-                         
-                    }else{
-                        // Password is not valid, display a generic error message
-                        $login_err = "Invalid username or password.";
+                        } else{
+                            // Password is not valid, display a generic error message
+                            $login_err = "Invalid username or password.";
+                        }
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
@@ -75,7 +74,6 @@ if (isset($_POST['join'])){
     
     // Close connection
     $db->close();
-
 }
 ?>
 
