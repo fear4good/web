@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 10, 2022 at 08:12 PM
+-- Generation Time: Jul 10, 2022 at 11:32 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(254) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `pasword` varchar(30) NOT NULL,
   `email` varchar(40) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
+INSERT INTO `users` (`id`, `username`, `pasword`, `email`) VALUES
 (1, 'test', 'Testing1!', 'test@gmail.com');
 COMMIT;
 
