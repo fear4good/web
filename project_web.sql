@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 10, 2022 at 11:32 PM
+-- Generation Time: Jul 13, 2022 at 04:52 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -21,6 +21,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `project_web`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pois`
+--
+
+DROP TABLE IF EXISTS `pois`;
+CREATE TABLE IF NOT EXISTS `pois` (
+  `id` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `rating` varchar(255) NOT NULL,
+  `rating_n` varchar(255) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pois`
+--
+
+INSERT INTO `pois` (`id`, `name`, `address`, `rating`, `rating_n`, `latitude`, `longitude`) VALUES
+('ChIJYW7ZL-hJXhMR9ve2dpMf5Io', 'Ελληνικά Ταχυδρομεία (ΕΛΤΑ)', 'Maizonos 32, Patra', '1.5', '175', '38.2498044', '21.7389391'),
+('ChIJr5-c39hJXhMRwfGwb6llWq8', 'DARAVALIS CLINIC (Γ. Δαραβάλης Δερματολόγος - Αφροδισιολόγος Πάτρα)', 'Riga Fereou 32-34, Patra', '4.7', '77', '38.250377', '21.7379673'),
+('ChIJHf2oKOhJXhMRU48jxmo1y6s', 'Zolotas S.A.', 'Riga Fereou 32, Patra', '4.2', '78', '38.2501092', '21.7378917'),
+('ChIJSap7relJXhMRUkopSQsXwuI', 'spelectronics.gr - ΗΛΕΚΤΡΟΝΙΚΑ ΗΛΕΚΤΡΟΛΟΓΙΚΑ ΠΑΤΡΑΣ', 'Satovriandou 43-47, Patra', '4.8', '62', '38.250167', '21.739824'),
+('ChIJFxIYOehJXhMRTnfIBMK7Cjw', 'eCig Hellas Ηλεκτρονικο Τσιγαρο - Πάτρα', 'Maizonos 47, Patra', '4.8', '209', '38.2496632', '21.7390509'),
+('ChIJhT1xJuhJXhMRB_dOMAB9G8A', 'Κατσαρόλα της Τούλας', 'Riga Fereou 49, Patra', '4.6', '569', '38.2499822', '21.7379614'),
+('ChIJ4d-vIOhJXhMRCSKJ5zHiF5E', 'Superdry', 'Spanos Ch & Sia O.E. - 15, Aratou Street, 26, Patra', '4.7', '42', '38.249763', '21.737806'),
+('ChIJOeK7WuhJXhMRp1dmjE1OOmo', 'ΑΝΑΣΤΑΣΟΠΟΥΛΟΣ ΙΩΑΝΝΗΣ', 'Korinthou 156, Patra', '4.5', '44', '38.249649', '21.7399194');
 
 -- --------------------------------------------------------
 
